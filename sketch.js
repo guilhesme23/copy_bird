@@ -1,4 +1,6 @@
 let scene
+let bird
+let ground;
 
 function preload() {
     let bgImage;
@@ -12,10 +14,15 @@ function preload() {
 
 function setup() {
     createCanvas(288, 512)
+    ground = height - 112;
+    bird = new Bird()
 }
 
 function draw() {
     background(0)
     scene.drawScene()
     scene.drawBase()
+
+    bird.show()
+    bird.update()
 }
