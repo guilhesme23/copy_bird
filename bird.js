@@ -1,6 +1,6 @@
 class Bird {
     constructor() {
-        this.position = createVector(60, height/8)
+        this.position = createVector(40, height/8)
         this.velocity = createVector()
         this.gravity = createVector(0,1)
         this.lift = -18
@@ -22,7 +22,7 @@ class Bird {
 
     update() {
         this.velocity.add(this.gravity)
-        this.velocity.mult(0.9)
+        this.velocity.mult(0.8)
         if (this.position.y > ground) {
             this.position.y = ground
             this.velocity.mult(0)

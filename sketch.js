@@ -1,6 +1,8 @@
 let scene
 let bird
 let ground;
+let pipes = [];
+let count = 0
 
 function preload() {
     let bgImage;
@@ -16,6 +18,9 @@ function setup() {
     createCanvas(288, 512)
     ground = height - 112;
     bird = new Bird()
+    for (let i=0; i<1; i++) {
+        pipes[i] = new Pipe();
+    }
 }
 
 function draw() {
@@ -23,6 +28,21 @@ function draw() {
     scene.drawScene()
     scene.drawBase()
 
+    if (count % 150 === 0) {
+        pipes.push(new Pipe())
+    } count++
+
+    for (let i=pipes.length-1; i>=0; i--) {
+        pipes[i].show();
+        pipes[i].update();
+
+        let offscreen = (pipes[i].x + pipes[i].w) < 0
+        if (offscreen) {
+            pipes.splice(i,1)
+            console.log('Bye')
+        }
+    }
+    
     bird.show()
     bird.update()
 }
