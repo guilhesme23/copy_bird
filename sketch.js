@@ -1,9 +1,3 @@
-let scene
-let bird
-let ground;
-let pipes = [];
-let count = 0
-
 function preload() {
     let bgImage;
     let baseImg;
@@ -22,24 +16,16 @@ function setup() {
 
 function draw() {
     background(0)
-    scene.drawScene()
-    scene.drawBase()
+    scene.drawScene();
 
-    if (count % 150 === 0) {
-        pipes.push(new Pipe())
-    } count++
+    createPipes();
 
-    for (let i=pipes.length-1; i>=0; i--) {
-        pipes[i].show();
-        pipes[i].update();
+    renderPipes();
 
-        let offscreen = (pipes[i].x + pipes[i].w) < 0
-        if (offscreen) {
-            pipes.splice(i,1)
-            console.log('Bye')
-        }
-    }
+    bird.show();
+    bird.update();
+
+    checkHits()
     
-    bird.show()
-    bird.update()
+    scene.drawBase();
 }

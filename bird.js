@@ -17,7 +17,6 @@ class Bird {
     fly() {
         let jump = createVector(0,this.lift)
         this.velocity.add(jump)
-        console.log('Jumped!')
     }
 
     update() {
