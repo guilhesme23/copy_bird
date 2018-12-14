@@ -1,9 +1,9 @@
 class Bird {
     constructor() {
-        this.position = createVector(width/2, height/2)
+        this.position = createVector(60, height/8)
         this.velocity = createVector()
-        this.acceleration = createVector()
         this.gravity = createVector(0,1)
+        this.lift = -18
         this.w = 34
         this.h = 24
     }
@@ -14,20 +14,23 @@ class Bird {
         ellipse(this.position.x, this.position.y, this.w, this.h)
     }
 
-    addGravity() {
-        if (this.position.y < ground) {
-          this.acceleration.add(this.gravity);
-        } else {
-          this.acceleration = createVector();
-          this.velocity = createVector()
-          this.position.y = ground
-        }
+    fly() {
+        let jump = createVector(0,this.lift)
+        this.velocity.add(jump)
+        console.log('Jumped!')
     }
 
     update() {
-        this.addGravity()
-        this.velocity.add(this.acceleration)
+        this.velocity.add(this.gravity)
+        this.velocity.mult(0.9)
+        if (this.position.y > ground) {
+            this.position.y = ground
+            this.velocity.mult(0)
+        } 
         this.position.add(this.velocity)
+        if (this.position.y < 0) {
+            this.position.y = 0
+        }
     }
 
 }
