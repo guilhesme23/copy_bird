@@ -2,6 +2,7 @@
 let scene;
 let bird;
 let birdSprites = [];
+let pipeSprites = [];
 let ground;
 let pipes = [];
 let count = 0;

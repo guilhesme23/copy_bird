@@ -10,13 +10,20 @@ function preload() {
     baseImg = loadImage('data/sprites/base.png')
     scene = new Scene(bgImage, baseImg)
     
+    // Load bird sprites
     midflap = loadImage('data/sprites/yellowbird-midflap.png')
     birdSprites.push(midflap)
     upflap = loadImage('data/sprites/yellowbird-upflap.png')
     birdSprites.push(upflap)
-    birdSprites.push(midflap)
     downflap = loadImage('data/sprites/yellowbird-downflap.png')
     birdSprites.push(downflap)
+
+    // Pipes sprites
+    let pipeUp = loadImage('data/sprites/pipe-green-down.png')
+    pipeSprites.push(pipeUp)
+    let pipeDown = loadImage('data/sprites/pipe-red.png')
+    pipeSprites.push(pipeDown)
+
 }
 
 function setup() {

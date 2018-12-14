@@ -20,13 +20,15 @@ class Bird {
         fill(255,100,100, 0)
         ellipse(this.position.x, this.position.y, this.w, this.h)
         fill(255,100,100)
-        if (this.animation.length > 0) {
+        if (this.animation.length > 0 && !this.animate) {
             image(this.animation[0], this.xpos, this.ypos);
         }
 
         if (this.animate) {
-            for (let i = 0; i < 2000; i++) {
-                image(this.animation[i % 4], this.xpos, this.ypos)
+            let sp = 0.3
+            for (let i = 0; i < 500; i+=sp) {
+                let index = floor(i) % 3
+                image(this.animation[index], this.xpos, this.ypos)
             }
             this.animate = false
         }
