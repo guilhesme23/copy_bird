@@ -3,7 +3,7 @@ class Bird {
         this.position = createVector(40, height/8)
         this.velocity = createVector()
         this.gravity = createVector(0,1)
-        this.lift = -18
+        this.lift = -23
         this.w = 34
         this.h = 24
     }

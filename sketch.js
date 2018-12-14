@@ -18,9 +18,6 @@ function setup() {
     createCanvas(288, 512)
     ground = height - 112;
     bird = new Bird()
-    for (let i=0; i<1; i++) {
-        pipes[i] = new Pipe();
-    }
 }
 
 function draw() {
