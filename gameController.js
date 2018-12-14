@@ -20,6 +20,7 @@ function renderPipes() {
       let offscreen = pipes[i].x + pipes[i].w < 0;
       if (offscreen) {
         pipes.splice(i, 1);
+        score++
       }
     }
 }

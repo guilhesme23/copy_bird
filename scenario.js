@@ -11,5 +11,8 @@ class Scene {
     
     drawBase() {
         image(this.base, 0, height + this.baseOffset)
+        let s = 'Score: ' + score.toString()
+        textSize(24)
+        text(s, 10, height - 70)
     }
 }
