@@ -1,6 +1,7 @@
 // Globals
 let scene;
 let bird;
+let birdSprites = [];
 let ground;
 let pipes = [];
 let count = 0;
