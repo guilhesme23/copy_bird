@@ -5,6 +5,10 @@ let ground;
 let pipes = [];
 let count = 0;
 let score = 0;
+let gameSpeed = 1.3
+let pipeRate = 150
+let maxPipeRate = 60
+let maxSpeed = 6
 
 function keyPressed() {
     if (key === ' ') {
@@ -21,12 +25,16 @@ function renderPipes() {
       if (offscreen) {
         pipes.splice(i, 1);
         score++
+        if (score % 4 === 0 && score !== 0) {
+            gameSpeed < maxSpeed ? gameSpeed += 0.3 : gameSpeed
+            pipeRate > maxPipeRate ? pipeRate -= 15 : pipeRate
+        }
       }
     }
 }
 
 function createPipes() {
-    if (count % 150 === 0) {
+    if (count % pipeRate === 0) {
       pipes.push(new Pipe());
     }
     count++;

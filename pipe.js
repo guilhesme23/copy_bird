@@ -27,10 +27,6 @@ class Pipe {
     }
 
     update() {
-        this.x -= this.speed
-    }
-
-    increaseSpeed(amount) {
-        this.speed += amount
+        this.x -= gameSpeed
     }
 }
